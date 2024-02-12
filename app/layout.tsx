@@ -1,10 +1,15 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
+import localFont from '@next/font/local'
 import './globals.css'
 import Navbar from './components/navbar/navbar'
 import ClientOnly from './components/clientonly'
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
+
+
+// Font files can be colocated inside of `pages`
+const local = localFont({ src: '../public/fonts/Inter-VariableFont_slnt,wght.ttf' })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={local.className}>
         <ClientOnly>
           <Navbar />
         </ClientOnly>
